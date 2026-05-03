@@ -10,6 +10,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
+RUN rm -rf vendor
 RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 8000
